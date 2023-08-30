@@ -3,8 +3,8 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 from rest_framework import viewsets
 from rest_framework import permissions
-from orga.serializers import UserSerializer, GroupSerializer
-
+from orga.serializers import UserSerializer, GroupSerializer, NewsArticleSerializer, CategorySerializer, EventSerializer
+from orga.models import Category, NewsArticle, Event
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -22,3 +22,15 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+class NewsArticleViewSet(viewsets.ModelViewSet):
+    queryset = NewsArticle.objects.all()
+    serializer_class = NewsArticleSerializer
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
