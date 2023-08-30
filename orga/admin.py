@@ -8,10 +8,7 @@ from orga.models import Category, NewsArticle, Event
 class UserAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Personal Information', {'fields': ('username', 'birthdate', 'email', 'profile_picture')}),
-
         )
-    #inlines = [AddressInline]
-
 
 admin.site.register(get_user_model(), UserAdmin)
 admin.site.register(Category)
